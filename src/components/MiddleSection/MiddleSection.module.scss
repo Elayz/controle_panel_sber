@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   flex-grow: 6;
+  font-family: SB Sans Display, serif;
 }
 .imageBlock{
   display: flex;
@@ -34,6 +35,22 @@
 .blackLight{
   flex-grow: 1;
   background-color: #252d33;
+}
+.blackHeadtText{
+  margin: 10px;
+  font-size: 11px;
+}
+.blackStatsValue{
+  margin: 10px;
+  font-size: 70px;
+  position: relative;
+}
+.blackStatsValueUnit{
+  font-size: 40px;
+  color: #69777d;
+  position: absolute;
+  top: 10px;
+  left: 90px;
 }
 .blackTemp{
   flex-grow: 1;
