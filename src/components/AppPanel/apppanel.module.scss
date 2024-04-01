@@ -1,0 +1,16 @@
+$backColor: #161c20;
+body{
+  margin: 0;
+}
+.blackMainLayer{
+  background-color: $backColor;
+  display: flex;
+  flex-direction: column;
+  height: 479px;
+  width: 768px;
+  margin: 0;
+}
+.blackSecondLayer{
+  color: white;
+  display: flex;
+}

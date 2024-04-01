@@ -1,0 +1,56 @@
+$scenariosBlockColor: #5fc5ab;
+$logoBlockColor: #293d46;
+.blackSecondLayer {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+.blackLogoBlock{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 1;
+  width: 150px;
+  background-color: $logoBlockColor;
+}
+.blackLogoBlock p{
+  align-self: center;
+}
+.blackScenariosBlock{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 2;
+  width: 100px;
+  background-color: $scenariosBlockColor;
+}
+.blackScenario{
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  background-color: #161c20;
+}
+.blackScenario p{
+  align-self: center;
+  flex-grow: 1;
+}
+.blackModesBlock{
+  flex-grow: 1;
+  display: flex;
+}
+.blackOffAllModes{
+  flex-grow: 1;
+  background-color: #252d33;
+}
+.blackOffLightMode{
+  flex-grow: 1;
+  background-color: #293d46;
+}
+.blackOnHeatingMode{
+  flex-grow: 1;
+  background-color: #252d33;
+}
+.blackOnCoolingMode{
+  flex-grow: 1;
+  background-color: #293d46;
+}

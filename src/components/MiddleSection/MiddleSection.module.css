@@ -1,0 +1,54 @@
+.blackSecondLayer {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-grow: 6;
+}
+
+.imageBlock {
+  display: flex;
+  flex-grow: 1;
+  width: 150px;
+  justify-content: center;
+  background-color: green;
+}
+
+.ant-slider-handle {
+  border-color: red !important;
+  background-color: red !important;
+}
+
+.imageBlock p {
+  align-self: center;
+}
+
+.blackControlBlock {
+  flex-grow: 2;
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.blackLightAndTempBlock {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.blackLight {
+  flex-grow: 1;
+  background-color: #252d33;
+}
+
+.blackTemp {
+  flex-grow: 1;
+  background-color: #293d46;
+}
+
+.blackBlinds {
+  flex-grow: 1;
+  background-color: #161c20;
+}
+
+/*# sourceMappingURL=MiddleSection.module.css.map */
