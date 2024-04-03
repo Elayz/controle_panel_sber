@@ -29,7 +29,7 @@ span{
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  width: 150px;
+  width: 60px;
   height: 100px;
   font-family: "SB Sans Display", serif;
 }
@@ -44,4 +44,17 @@ span{
   width: 100px;
   justify-content: space-around;
   align-items: center;
+  position: relative;
 }
+.circleInfoQ{
+  position: absolute;
+  left: 10px;
+}
+.circleInfoT{
+  position: absolute;
+  left: 210px;
+  top: 20px;
+}.circleInfoH{
+   position: absolute;
+  right: 10px;
+ }

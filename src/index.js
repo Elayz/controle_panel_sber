@@ -17,3 +17,5 @@ root.render(
         </main>
     </Provider>
 );
+
+export default (store);

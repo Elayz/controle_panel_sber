@@ -4,23 +4,22 @@ import * as actions from '../../redux/actions';
 import classes from './MiddleSection.module.scss';
 import {Slider} from "antd";
 
-const MiddleSection = () => {
+const MiddleSection = ({ SP_T, SP_L}) => {
     const onChange = (a) => {
         console.log(a)
     }
-    const handleColor = '#ffffff';
     const railStyleObj = { backgroundColor: '#69777d'};
     return (
         <div className={classes.blackSecondLayer}>
             <div className={classes.imageBlock}>
-                <p>ИЗОБРАЖЕНИЕ</p>
+                <div className={classes.imageBlockImage}></div>
             </div>
             <div className={classes.blackControlBlock}>
                 <div className={classes.blackLightAndTempBlock}>
                     <div className={classes.blackLight}>
-                        <p className={classes.blackHeadtText}>ОСВЕЩЕНИЕ</p>
+                        <p className={classes.blackHeadText}>ОСВЕЩЕНИЕ</p>
                         <div className={classes.blackStatsValue}>
-                            00
+                            {SP_L}
                             <div className={classes.blackStatsValueUnit}>%</div>
                         </div>
                         <Slider
@@ -32,14 +31,14 @@ const MiddleSection = () => {
                                 borderRadius: '50px',
                             }}
                             railStyle={railStyleObj}
-                            defaultValue={30}
-                            onChange={onChange}
+                            defaultValue={SP_L}
+                            onAfterChange={onChange}
                         />
                     </div>
                     <div className={classes.blackTemp}>
-                        <p className={classes.blackHeadtText}>ТЕМПЕРАТУРА</p>
+                        <p className={classes.blackHeadText}>ТЕМПЕРАТУРА</p>
                         <div className={classes.blackStatsValue}>
-                            00
+                            {SP_T}
                             <div className={classes.blackStatsValueUnit}>°C</div>
                         </div>
                         <Slider
@@ -52,12 +51,12 @@ const MiddleSection = () => {
                             }}
                             railStyle={railStyleObj}
                             defaultValue={30}
-                            onChange={onChange}
+                            onAfterChange={onChange}
                         />
                     </div>
                 </div>
                 <div className={classes.blackBlinds}>
-                    <p className={classes.blackHeadtText}>ЖАЛЮЗИ</p>
+                    <p className={classes.blackHeadText}>ЖАЛЮЗИ</p>
                 </div>
             </div>
         </div>
@@ -66,11 +65,11 @@ const MiddleSection = () => {
 };
 
 
-// const mapStateToProps = (state) => {     //для переменных из стейта
-//     return {
-//         countValue: state.count,
-//     }
-// };
-// export default connect(mapStateToProps, actions)(Panel);
-export default (MiddleSection);
+const mapStateToProps = (state) => {     //для переменных из стейта
+    return {
+        SP_T: state.SP_T,
+        SP_L: state.SP_L,
+    }
+};
+export default connect(mapStateToProps, actions)(MiddleSection);
 

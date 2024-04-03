@@ -5,53 +5,19 @@ import classes from './apppanel.module.scss';
 import Header from "../Header/Header";
 import MiddleSection from "../MiddleSection/MiddleSection";
 import Footer from "../Footer/Footer";
-// import jsonRpcService from '../../services/json_rpc.min';
+import login from "../../services/services";
 
 
-const Panel = ({countValue, counter}) => {
-
-
-
-
-    // async function login() {
-    //     const service = new jsonRpcService("wss://test1.albacore.ru:443", 10000);
-    //     await service.connectWS();
-    //     const vars = ["SENS_T", "BLIND_POS", "BLIND_CMD"];
-    //
-    //
-    //     const login = 'A28_guest';
-    //     const password = '12345678'
-    //     const browser = 'chrome'
-    //
-    //
-    //
-    //     const res = await service.loginUser(
-    //         {login: login, password: password, browser: browser});
-    //     // console.log(res);
-    //     if (res.result) {
-    //         const res2 = await service.verifyTokenUser(
-    //             {login: login, token: res.result, browser: ""});
-    //         if (res2.result) {
-    //             localStorage.setItem("login", login);
-    //             localStorage.setItem("token", res.result);
-    //         } else {
-    //             alert(`Ошибка входа: ${res2.error.message}`);
-    //         }
-    //     } else {
-    //         alert(`Ошибка входа: ${res.error.message}`);
+const Panel = ({addToState_SENS_T}) => {
+    // console.log("changes", a.filter(() => {
+    //     const pattern = /SENS_T$/;
+    //     if (pattern.test(a[0])){
+    //         console.log(a);
     //     }
-    //     const subscription = await service.subscribeVars({
-    //         as_index: false,
-    //         vars: vars.map((x) => "P5_N1" + "_" + x)
-    //     }, (changes) => {
-    //         console.log("changes", changes)
-    //     })
-    // }
-    // console.log(login());
-
-
-
-
+    // }))
+    const data = login();
+    // console.log(data);
+    // addToState_SENS_T('fffffffffffffffffffffffff')
 
     return (
         <section className={classes.blackMainLayer}>
