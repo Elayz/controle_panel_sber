@@ -5,7 +5,7 @@ span {
 }
 
 .currentTempDark {
-  background-image: url("../../assets_images/current-temp-dark.svg");
+  background-image: url("../../assets_images/current/current-temp-dark.svg");
   width: 50px;
   height: 50px;
   position: absolute;
@@ -13,7 +13,7 @@ span {
 }
 
 .currentHumpDark {
-  background-image: url("../../assets_images/current-hum-dark.svg");
+  background-image: url("../../assets_images/current/current-hum-dark.svg");
   width: 50px;
   height: 50px;
   position: absolute;

@@ -5,13 +5,15 @@ $logoBlockColor: #293d46;
   display: flex;
   justify-content: center;
   flex-grow: 1;
+  font-family: "SB Sans Text", serif;
 }
 .blackLogoBlock{
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   flex-grow: 1;
-  width: 150px;
+  justify-content: center;
+  width: 60px;
+  height: 70px;
+  font-family: "SB Sans Display", serif;
   background-color: $logoBlockColor;
 }
 .blackLogoBlock p{
@@ -29,14 +31,21 @@ $logoBlockColor: #293d46;
   flex-grow: 1;
   flex-direction: row;
   background-color: #161c20;
+  justify-content: center;
+  width: 100px;
 }
-.blackScenario p{
-  align-self: center;
+.blackScenarioText{
+  justify-content: center;
+  display: flex;
   flex-grow: 1;
+}
+.blackScenarioText p{
+  align-self: center;
 }
 .blackModesBlock{
   flex-grow: 1;
   display: flex;
+  width: 85px;
 }
 .blackOffAllModes{
   flex-grow: 1;

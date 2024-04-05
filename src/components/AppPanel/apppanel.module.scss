@@ -1,14 +1,16 @@
 $backColor: #161c20;
 body{
   margin: 0;
+  background-color: #161C20;
 }
 .blackMainLayer{
   background-color: $backColor;
   display: flex;
   flex-direction: column;
-  height: 479px;
+  height: 515px;
   width: 768px;
-  margin: 0;
+  border: 2px #107F8C solid;
+  margin: auto;
 }
 .blackSecondLayer{
   color: white;

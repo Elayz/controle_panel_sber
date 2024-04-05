@@ -14,7 +14,7 @@
 }
 
 .imageBlockImage {
-  background-image: url("../../assets_images/auditoria.svg");
+  background-image: url("../../assets_images/auditoriaImage/auditoria.svg");
   width: 280px;
   height: 345px;
 }
@@ -40,6 +40,7 @@
   display: flex;
   flex-grow: 1;
   flex-direction: column;
+  width: 100px;
 }
 
 .blackLight {
@@ -53,7 +54,7 @@
 }
 
 .blackStatsValue {
-  margin: 10px;
+  margin: 10px 20px;
   font-size: 70px;
   position: relative;
 }
@@ -63,7 +64,7 @@
   color: #69777d;
   position: absolute;
   top: 10px;
-  left: 90px;
+  left: 120px;
 }
 
 .blackTemp {
@@ -74,6 +75,43 @@
 .blackBlinds {
   flex-grow: 1;
   background-color: #161c20;
+}
+
+.sliderBlock {
+  display: flex;
+  margin: 0 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  flex-grow: 1;
+}
+
+.sliderImageLightLeft {
+  background-image: url("../../assets_images/slider/slider-lighting-01-dark.svg");
+  width: 25px;
+  height: 25px;
+  margin: 0 10px 0 0;
+}
+
+.sliderImageLightRight {
+  background-image: url("../../assets_images/slider/slider-lighting-02-dark.svg");
+  width: 25px;
+  height: 25px;
+  margin: 0 0 0 10px;
+}
+
+.sliderImageTempLeft {
+  background-image: url("../../assets_images/slider/slider-temp-01-dark.svg");
+  width: 25px;
+  height: 25px;
+}
+
+.sliderImageTempRight {
+  background-image: url("../../assets_images/slider/slider-temp-02-dark.svg");
+  width: 25px;
+  height: 25px;
 }
 
 /*# sourceMappingURL=MiddleSection.module.css.map */

@@ -12,7 +12,9 @@ const Footer = () => {
             </div>
             <div className={classes.blackScenariosBlock}>
                 <div className={classes.blackScenario}>
+                    <div className={classes.blackScenarioText}>
                         <p>СЦЕНАРИИ</p>
+                    </div>
                     <div className={classes.blackOffAllModes}>6</div>
                 </div>
                 <div className={classes.blackModesBlock}>

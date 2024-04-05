@@ -1,6 +1,4 @@
 import jsonRpcService from './json_rpc.min';
-import {connect} from "react-redux";
-import * as actions from "../redux/actions";
 import store from "../index";
 import {
     addToState_SENS_H,
@@ -10,9 +8,10 @@ import {
     addToState_SP_T
 } from "../redux/actions";
 
+
+export const service = new jsonRpcService("wss://test1.albacore.ru:443", 10000);
+await service.connectWS();
 export default async function login() {
-    const service = new jsonRpcService("wss://test1.albacore.ru:443", 10000);
-    await service.connectWS();
     const vars = [
         "SENS_T",
         "BLIND_POS",
@@ -53,8 +52,7 @@ export default async function login() {
                     const patternSENS_Q = /SENS_Q$/;
                     const patternSENS_H = /SENS_H$/;
                     const patternSP_T = /SP_T$/;
-                    const patternSP_L = /SP_H$/;
-
+                    const patternSP_L = /SP_L$/;
                     if (patternSENS_T.test(el[0])){
                         store.dispatch(addToState_SENS_T(Math.ceil(el[2])))
                     }
@@ -76,6 +74,5 @@ export default async function login() {
     } catch(error) {
         alert('fdfdfdf')
     }
-
 }
 
