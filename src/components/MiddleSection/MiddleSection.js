@@ -3,19 +3,18 @@ import { connect } from 'react-redux';
 import * as actions from '../../redux/actions';
 import classes from './MiddleSection.module.scss';
 import {Slider} from "antd";
-import login from "../../services/services";
 import {service} from "../../services/services";
 
-const MiddleSection = ({ SP_T, SP_L}) => {
+const MiddleSection = ({ SP_T, SP_L }) => {
     const onChangeLight = (lightValue) => {
         service.setVar({var: "P5_N2_SP_L", value: lightValue})
             .catch((error)=>alert(`Something wrong: ${error}`));
-    }
+    };
 
     const onChangeTemp = (tempValue) => {
         service.setVar({var: "P5_N2_SP_T", value: tempValue})
             .catch((error)=>alert(`Something wrong: ${error}`));
-    }
+    };
 
     const railStyleObj = { backgroundColor: '#69777d'};
     return (

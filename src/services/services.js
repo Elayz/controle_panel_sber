@@ -5,7 +5,11 @@ import {
     addToState_SENS_Q,
     addToState_SENS_T,
     addToState_SP_L,
-    addToState_SP_T
+    addToState_SP_T,
+    changeState_coolingActive,
+    changeState_heatingActive,
+    changeState_offAllActive,
+    changeState_offLightActive
 } from "../redux/actions";
 
 
@@ -20,6 +24,10 @@ export default async function login() {
         "SENS_Q",
         "SP_T",
         "SP_L",
+        "SCENA_OFF_ALL",
+        "SCENA_OFF_LIGHTS",
+        "SCENA_HEATING",
+        "SCENA_COOLING"
     ];
 
     const login = 'A28_guest';
@@ -45,7 +53,7 @@ export default async function login() {
             as_index: false,
             vars: vars.map((x) => "P5_N2" + "_" + x)
         }, (changes) => {
-            console.log(changes);
+            // console.log(changes);
             changes.map((el) => {
                 el.filter(() => {
                     const patternSENS_T = /SENS_T$/;
@@ -53,6 +61,11 @@ export default async function login() {
                     const patternSENS_H = /SENS_H$/;
                     const patternSP_T = /SP_T$/;
                     const patternSP_L = /SP_L$/;
+
+                    const patternSCENA_OFF_ALL = /SCENA_OFF_ALL$/;
+                    const patternSCENA_OFF_LIGHTS = /SCENA_OFF_LIGHTS$/;
+                    const patternSCENA_COOLING = /SCENA_COOLING$/;
+                    const patternSCENA_HEATING = /SCENA_HEATING$/;
                     if (patternSENS_T.test(el[0])){
                         store.dispatch(addToState_SENS_T(Math.ceil(el[2])))
                     }
@@ -68,11 +81,25 @@ export default async function login() {
                     if(patternSP_L.test(el[0])){
                         store.dispatch(addToState_SP_L(Math.ceil(el[2])))
                     }
+
+                    if(patternSCENA_OFF_ALL.test(el[0])){
+                        store.dispatch(changeState_offAllActive(el[2]))
+                    }
+                    if(patternSCENA_OFF_LIGHTS.test(el[0])){
+                        store.dispatch(changeState_offLightActive(el[2]))
+                    }
+                    if(patternSCENA_COOLING.test(el[0])){
+                        store.dispatch(changeState_coolingActive(el[2]))
+                    }
+                    if(patternSCENA_HEATING.test(el[0])){
+                        store.dispatch(changeState_heatingActive(el[2]))
+                    }
+
                 })
             });
         });
     } catch(error) {
-        alert('fdfdfdf')
+        alert(`Error in login function (service.js): ${error}`)
     }
 }
 

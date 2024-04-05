@@ -7,6 +7,7 @@
 }
 
 .blackLogoBlock {
+  position: relative;
   display: flex;
   flex-grow: 1;
   justify-content: center;
@@ -14,6 +15,25 @@
   height: 70px;
   font-family: "SB Sans Display", serif;
   background-color: #293d46;
+}
+
+.logoImage {
+  background: url("../../assets_images/logo/logo-dark.svg") no-repeat;
+  width: 45px;
+  height: 45px;
+  align-self: center;
+  transform: scale(3);
+  position: absolute;
+  top: 60px;
+}
+
+.footerLogoText {
+  position: absolute;
+  color: #69777d;
+  font-size: 9px;
+  margin: 0;
+  left: 5px;
+  bottom: 5px;
 }
 
 .blackLogoBlock p {
@@ -40,7 +60,7 @@
 .blackScenarioText {
   justify-content: center;
   display: flex;
-  flex-grow: 1;
+  width: 180px;
 }
 
 .blackScenarioText p {
@@ -51,26 +71,87 @@
   flex-grow: 1;
   display: flex;
   width: 85px;
+  flex-direction: row;
+}
+
+.scenarioBottomText {
+  align-self: center;
+  margin: 0;
+  font-size: 10px;
+  color: #5fc5ab;
+}
+
+.scenarioActiveButton {
+  flex-grow: 1;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 80px;
 }
 
 .blackOffAllModes {
   flex-grow: 1;
   background-color: #252d33;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 80px;
+}
+
+.blackOffAllModesImage {
+  background-image: url("../../assets_images/scenario/scenario-on_off-accent.svg");
+  width: 45px;
+  height: 45px;
+  align-self: center;
 }
 
 .blackOffLightMode {
   flex-grow: 1;
   background-color: #293d46;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 80px;
+}
+
+.blackOffLightModeImage {
+  background-image: url("../../assets_images/scenario/scenario-lights_off-accent.svg");
+  width: 45px;
+  height: 45px;
+  align-self: center;
 }
 
 .blackOnHeatingMode {
   flex-grow: 1;
   background-color: #252d33;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 80px;
+}
+
+.blackOnHeatingModeImage {
+  background-image: url("../../assets_images/scenario/scenario-heating-accent.svg");
+  width: 45px;
+  height: 45px;
+  align-self: center;
 }
 
 .blackOnCoolingMode {
   flex-grow: 1;
   background-color: #293d46;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 80px;
+}
+
+.blackOnCoolingModeImage {
+  background-image: url("../../assets_images/scenario/scenario-cooling-accent.svg");
+  width: 45px;
+  height: 45px;
+  align-self: center;
 }
 
 /*# sourceMappingURL=Footer.module.css.map */
