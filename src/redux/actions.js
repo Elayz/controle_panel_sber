@@ -11,6 +11,8 @@ export const changeState_heatingActive  = (payload) => {return {type: 'changeSta
 export const changeState_coolingActive  = (payload) => {return {type: 'changeState_coolingActive', payload}};
 export const changeState_offAllActive_pullInToReserve  = (payload) => {return {type: 'changeState_offAllActive_pullInToReserve', payload}};
 export const changeState_offAllActive_PullOutToReserve  = (payload) => {return {type: 'changeState_offAllActive_PullOutToReserve', payload}};
+export const changeState_blindMoveValue  = (payload) => {return {type: 'changeState_blindMoveValue', payload}};
+export const changeState_BLIND_CMD_command_value  = (payload) => {return {type: 'changeState_BLIND_CMD_command_value', payload}};
 
 
 

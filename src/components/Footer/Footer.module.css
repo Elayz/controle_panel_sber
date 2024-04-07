@@ -81,6 +81,13 @@
   color: #5fc5ab;
 }
 
+.scenarioBottomTextDisabled {
+  align-self: center;
+  margin: 0;
+  font-size: 10px;
+  color: #69777d;
+}
+
 .scenarioActiveButton {
   flex-grow: 1;
   background-color: white;
@@ -122,6 +129,13 @@
   align-self: center;
 }
 
+.blackOffLightModeImageDisabled {
+  background-image: url("../../assets_images/scenario/scenario-lights_off-inactive-dark.svg");
+  width: 45px;
+  height: 45px;
+  align-self: center;
+}
+
 .blackOnHeatingMode {
   flex-grow: 1;
   background-color: #252d33;
@@ -138,6 +152,13 @@
   align-self: center;
 }
 
+.blackOnHeatingModeImageDisabled {
+  background-image: url("../../assets_images/scenario/scenario-heating-inactive-dark.svg");
+  width: 45px;
+  height: 45px;
+  align-self: center;
+}
+
 .blackOnCoolingMode {
   flex-grow: 1;
   background-color: #293d46;
@@ -149,6 +170,13 @@
 
 .blackOnCoolingModeImage {
   background-image: url("../../assets_images/scenario/scenario-cooling-accent.svg");
+  width: 45px;
+  height: 45px;
+  align-self: center;
+}
+
+.blackOnCoolingModeImageDisabled {
+  background-image: url("../../assets_images/scenario/scenario-cooling-inactive-dark.svg");
   width: 45px;
   height: 45px;
   align-self: center;

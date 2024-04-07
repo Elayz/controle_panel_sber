@@ -1,3 +1,4 @@
+$buttonImageSize: 60px;
 .blackSecondLayer {
   color: white;
   display: flex;
@@ -61,9 +62,29 @@
   flex-grow: 1;
   background-color: #293d46;
 }
+.blindsFrameBlock{
+  height: 180px;
+  width: 160px;
+  border: 1px white solid;
+  margin: 20px auto;
+  overflow: hidden;
+}
+.blindsMove{
+  background: url("../../assets_images/blinds/blinds-dark.svg") no-repeat;
+  height: 180px;
+  width: 140px;
+  margin: auto auto auto auto;
+  scale: 1.1;
+  transition: 1.5s;
+  transition-timing-function: ease-out;
+}
+.blindsSlider{
+  margin: 10px 33px;
+}
 .blackBlinds{
   flex-grow: 1;
   background-color: #161c20;
+  width: 85px;
 }
 .sliderBlock{
   display: flex;
@@ -95,4 +116,80 @@
   background-image: url("../../assets_images/slider/slider-temp-02-dark.svg");
   width: 25px;
   height: 25px;
+}
+.buttonsBlock{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 180px;
+  margin: auto;
+}
+
+
+
+
+
+
+.buttonsBlockDown{
+  background: url("../../assets_images/blinds/blinds-down-accent.svg") no-repeat;
+  width: $buttonImageSize;
+  height: $buttonImageSize;
+  border: 1px white solid;
+  flex-grow: 1;
+}
+.buttonsBlockDownActive{
+  background: white url("../../assets_images/blinds/blinds-down-accent.svg") no-repeat;
+  width: $buttonImageSize;
+  height: $buttonImageSize;
+  border: 1px white solid;
+  flex-grow: 1;
+}
+.buttonsBlockDownDisabled{
+  background: url("../../assets_images/blinds/blinds-down-inactive-light.svg") no-repeat;
+  width: $buttonImageSize;
+  height: $buttonImageSize;
+  border: 1px white solid;
+  flex-grow: 1;
+}
+.buttonsBlockStop{
+  background: url("../../assets_images/blinds/blinds-pause-accent.svg")no-repeat;
+  width: $buttonImageSize;
+  height: $buttonImageSize;
+  border: 1px white solid;
+  flex-grow: 1;
+}
+.buttonsBlockStopActive{
+  background: white url("../../assets_images/blinds/blinds-pause-accent.svg")no-repeat;
+  width: $buttonImageSize;
+  height: $buttonImageSize;
+  border: 1px white solid;
+  flex-grow: 1;
+}
+.buttonsBlockStopDisabled{
+  background: url("../../assets_images/blinds/blinds-pause-inactive-light.svg")no-repeat;
+  width: $buttonImageSize;
+  height: $buttonImageSize;
+  border: 1px white solid;
+  flex-grow: 1;
+}
+.buttonsBlockUp{
+  background: url("../../assets_images/blinds/blinds-up-accent.svg")no-repeat;
+  width: $buttonImageSize;
+  height: $buttonImageSize;
+  border: 1px white solid;
+  flex-grow: 1;
+}
+.buttonsBlockUpActive{
+  background: white url("../../assets_images/blinds/blinds-up-accent.svg")no-repeat;
+  width: $buttonImageSize;
+  height: $buttonImageSize;
+  border: 1px white solid;
+  flex-grow: 1;
+}
+.buttonsBlockUpDisabled{
+  background: url("../../assets_images/blinds/blinds-up-inactive-light.svg")no-repeat;
+  width: $buttonImageSize;
+  height: $buttonImageSize;
+  border: 1px white solid;
+  flex-grow: 1;
 }

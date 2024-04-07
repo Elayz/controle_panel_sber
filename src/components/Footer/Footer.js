@@ -88,7 +88,7 @@ const Footer = (
     return (
         <div className={classes.blackSecondLayer}>
             <div className={classes.blackLogoBlock}>
-                <p className={classes.footerLogoText}>Powered <br/> by Albacore®</p>
+                <p className={classes.footerLogoText}>Powered<br/>by Albacore®</p>
                 <div className={classes.logoImage}></div>
             </div>
             <div className={classes.blackScenariosBlock}>
@@ -103,16 +103,16 @@ const Footer = (
                 </div>
                 <div className={classes.blackModesBlock}>
                     <div onClick={onClickOffLightActive} className={!offLightActive ? classes.blackOffLightMode : classes.scenarioActiveButton}>
-                        <div className={classes.blackOffLightModeImage}></div>
-                        <p className={classes.scenarioBottomText}>{OffLightButtonText}</p>
+                        <div className={!offAllActive ? classes.blackOffLightModeImage : classes.blackOffLightModeImageDisabled}></div>
+                        <p className={!offAllActive ? classes.scenarioBottomText : classes.scenarioBottomTextDisabled}>{OffLightButtonText}</p>
                     </div>
                     <div onClick={onClickHeatingActive} className={ !heatingActive ? classes.blackOnHeatingMode : classes.scenarioActiveButton}>
-                        <div className={classes.blackOnHeatingModeImage}></div>
-                        <p className={classes.scenarioBottomText}>{OnHeatButtonText}</p>
+                        <div className={!offAllActive ? classes.blackOnHeatingModeImage : classes.blackOnHeatingModeImageDisabled}></div>
+                        <p className={!offAllActive ? classes.scenarioBottomText : classes.scenarioBottomTextDisabled}>{OnHeatButtonText}</p>
                     </div>
                     <div onClick={onClickCoolingActive} className={ !coolingActive ? classes.blackOnCoolingMode : classes.scenarioActiveButton}>
-                        <div className={classes.blackOnCoolingModeImage}></div>
-                        <p className={classes.scenarioBottomText}>{OnCoolingButtonText}</p>
+                        <div className={!offAllActive ? classes.blackOnCoolingModeImage : classes.blackOnCoolingModeImageDisabled}></div>
+                        <p className={!offAllActive ? classes.scenarioBottomText : classes.scenarioBottomTextDisabled}>{OnCoolingButtonText}</p>
                     </div>
                 </div>
             </div>

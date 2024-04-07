@@ -5,7 +5,7 @@ import {
     addToState_SENS_Q,
     addToState_SENS_T,
     addToState_SP_L,
-    addToState_SP_T,
+    addToState_SP_T, changeState_BLIND_CMD_command_value, changeState_blindMoveValue,
     changeState_coolingActive,
     changeState_heatingActive,
     changeState_offAllActive,
@@ -27,12 +27,27 @@ export default async function login() {
         "SCENA_OFF_ALL",
         "SCENA_OFF_LIGHTS",
         "SCENA_HEATING",
-        "SCENA_COOLING"
+        "SCENA_COOLING",
+        "BLIND_CMD",
+        "BLIND_POS_SP",
+        "BLIND_POS",
+        "BLIND_CMD"
     ];
 
     const login = 'A28_guest';
     const password = '12345678'
     const browser = 'chrome'
+    const patternSENS_T = /SENS_T$/;
+    const patternSENS_Q = /SENS_Q$/;
+    const patternSENS_H = /SENS_H$/;
+    const patternSP_T = /SP_T$/;
+    const patternSP_L = /SP_L$/;
+    const patternSCENA_OFF_ALL = /SCENA_OFF_ALL$/;
+    const patternSCENA_OFF_LIGHTS = /SCENA_OFF_LIGHTS$/;
+    const patternSCENA_COOLING = /SCENA_COOLING$/;
+    const patternSCENA_HEATING = /SCENA_HEATING$/;
+    const patternBLIND_POS = /BLIND_POS$/;
+    const patternBLIND_CMD = /BLIND_CMD$/;
 
     try{
         const res = await service.loginUser(
@@ -53,19 +68,15 @@ export default async function login() {
             as_index: false,
             vars: vars.map((x) => "P5_N2" + "_" + x)
         }, (changes) => {
-            // console.log(changes);
+            console.log(changes);
             changes.map((el) => {
                 el.filter(() => {
-                    const patternSENS_T = /SENS_T$/;
-                    const patternSENS_Q = /SENS_Q$/;
-                    const patternSENS_H = /SENS_H$/;
-                    const patternSP_T = /SP_T$/;
-                    const patternSP_L = /SP_L$/;
-
-                    const patternSCENA_OFF_ALL = /SCENA_OFF_ALL$/;
-                    const patternSCENA_OFF_LIGHTS = /SCENA_OFF_LIGHTS$/;
-                    const patternSCENA_COOLING = /SCENA_COOLING$/;
-                    const patternSCENA_HEATING = /SCENA_HEATING$/;
+                    if (patternBLIND_CMD.test(el[0])){
+                        store.dispatch(changeState_BLIND_CMD_command_value(el[2]))
+                    }
+                    if (patternBLIND_POS.test(el[0])){
+                        store.dispatch(changeState_blindMoveValue(el[2]))
+                    }
                     if (patternSENS_T.test(el[0])){
                         store.dispatch(addToState_SENS_T(Math.ceil(el[2])))
                     }

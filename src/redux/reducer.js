@@ -6,8 +6,8 @@ const initState = {
     BLIND_POS:0,
     SENS_H: 0,
     SENS_Q: 0,
-    SP_T: 0,
-    SP_L: 0,
+    SP_T: -1,
+    SP_L: -1,
     offAllActive: 0,
     offLightActive: 0,
     heatingActive: 0,
@@ -15,10 +15,28 @@ const initState = {
     offLightActiveReserve: 0,   //используется для хранения данных offLightActive, если включается режим offAllActive т.к. эта функция не реализована на сервере
     heatingActiveReserve: 0,    //используется для хранения данных heatingActive, если включается режим offAllActive т.к. эта функция не реализована на сервере
     coolingActiveReserve: 0,    //используется для хранения данных coolingActive, если включается режим offAllActive т.к. эта функция не реализована на сервере
+    blindMoveValue: null,
+    BLIND_CMD_command_value:0,
 }
 
 const reducer = (state = initState, action) => {
     switch (action.type) {
+        case 'changeState_BLIND_CMD_command_value':
+            return {
+                ...state,
+                BLIND_CMD_command_value: action.payload,
+            };
+
+
+
+
+
+
+        case 'changeState_blindMoveValue':
+            return {
+                ...state,
+                blindMoveValue: action.payload,
+            };
         case 'changeState_offAllActive':
             return {
                 ...state,

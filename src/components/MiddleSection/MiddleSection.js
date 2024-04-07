@@ -5,7 +5,7 @@ import classes from './MiddleSection.module.scss';
 import {Slider} from "antd";
 import {service} from "../../services/services";
 
-const MiddleSection = ({ SP_T, SP_L }) => {
+const MiddleSection = ({ SP_T, SP_L, blindMoveValue, BLIND_CMD_command_value }) => {
     const onChangeLight = (lightValue) => {
         service.setVar({var: "P5_N2_SP_L", value: lightValue})
             .catch((error)=>alert(`Something wrong: ${error}`));
@@ -15,8 +15,23 @@ const MiddleSection = ({ SP_T, SP_L }) => {
         service.setVar({var: "P5_N2_SP_T", value: tempValue})
             .catch((error)=>alert(`Something wrong: ${error}`));
     };
+    const onChangeBlind = (blindPosition) => {
+        service.setVar({var: "P5_N2_BLIND_POS_SP", value: blindPosition})
+    };
+    const onChangeUp = () => {
+        service.setVar({var: "P5_N2_BLIND_CMD", value: 3})
+    };
+    const onChangeStop = () => {
+        service.setVar({var: "P5_N2_BLIND_CMD", value: 2})
+    };
+    const onChangeDown = () => {
+        service.setVar({var: "P5_N2_BLIND_CMD", value: 1})
+    };
 
     const railStyleObj = { backgroundColor: '#69777d'};
+    const blindMoveStyle = {
+        transform: `translateY(-${blindMoveValue * 1.5}px)`,
+    };
     return (
         <div className={classes.blackSecondLayer}>
             <div className={classes.imageBlock}>
@@ -32,19 +47,22 @@ const MiddleSection = ({ SP_T, SP_L }) => {
                         </div>
                         <div className={classes.sliderBlock}>
                             <div className={classes.sliderImageLightLeft}></div>
-                            <Slider
-                                className={classes.slider}
-                                trackStyle={{
-                                    backgroundColor: '#5fc5ab',
-                                }}
-                                handleStyle={{
-                                    boxShadow: '0 0 0 4px #5fc5ab',
-                                    borderRadius: '50px',
-                                }}
-                                railStyle={railStyleObj}
-                                defaultValue={SP_L}
-                                onChangeComplete={onChangeLight}
-                            />
+                            {SP_L===-1
+                                ?<div></div>
+                                :<Slider
+                                    className={classes.slider}
+                                    trackStyle={{
+                                        backgroundColor: '#5fc5ab',
+                                    }}
+                                    handleStyle={{
+                                        boxShadow: '0 0 0 4px #5fc5ab',
+                                        borderRadius: '50px',
+                                    }}
+                                    railStyle={railStyleObj}
+                                    defaultValue={SP_L}
+                                    onChangeComplete={onChangeLight}
+                                />
+                            }
                             <div className={classes.sliderImageLightRight}></div>
                         </div>
                     </div>
@@ -56,27 +74,60 @@ const MiddleSection = ({ SP_T, SP_L }) => {
                         </div>
                         <div className={classes.sliderBlock}>
                             <div className={classes.sliderImageTempLeft}></div>
-                            <Slider
-                                className={classes.slider}
-                                trackStyle={{
-                                    backgroundColor: '#5fc5ab',
-                                }}
-                                handleStyle={{
-                                    boxShadow: '0 0 0 4px #5fc5ab',
-                                    borderRadius: '50px',
-                                }}
-                                railStyle={railStyleObj}
-                                min={16}
-                                max={35}
-                                defaultValue={SP_T}
-                                onChangeComplete={onChangeTemp}
-                            />
+                            {SP_T===-1
+                                ?<div></div>
+                                :<Slider
+                                    className={classes.slider}
+                                    trackStyle={{
+                                        backgroundColor: '#5fc5ab',
+                                    }}
+                                    handleStyle={{
+                                        boxShadow: '0 0 0 4px #5fc5ab',
+                                        borderRadius: '50px',
+                                    }}
+                                    railStyle={railStyleObj}
+                                    min={16}
+                                    max={35}
+                                    defaultValue={SP_T}
+                                    onChangeComplete={onChangeTemp}
+                                />
+                            }
                             <div className={classes.sliderImageTempRight}></div>
                         </div>
                     </div>
                 </div>
                 <div className={classes.blackBlinds}>
                     <p className={classes.blackHeadText}>ЖАЛЮЗИ</p>
+                    <div className={classes.blindsFrameBlock}>
+
+                        <div style={blindMoveStyle} className={classes.blindsMove}></div>
+                    </div>
+                    {blindMoveValue===null
+                        ?<div></div>
+                        : <Slider
+                            className={classes.blindsSlider}
+                            trackStyle={{
+                                backgroundColor: '#5fc5ab',
+                            }}
+                            handleStyle={{
+                                boxShadow: '0 0 0 4px #5fc5ab',
+                                borderRadius: '50px',
+                            }}
+                            {...(BLIND_CMD_command_value === 1 || BLIND_CMD_command_value === 3
+                                ?{ value: blindMoveValue }
+                                : {value: typeof blindMoveValue === 'number' ? blindMoveValue : 0}
+                            )}
+
+                            railStyle={railStyleObj}
+                            defaultValue={blindMoveValue}
+                            onChangeComplete={onChangeBlind}
+                        />
+                    }
+                    <div className={classes.buttonsBlock}>
+                        <div onClick={onChangeDown} className={blindMoveValue===0 ? classes.buttonsBlockDownDisabled : BLIND_CMD_command_value===1 ? classes.buttonsBlockDownActive : classes.buttonsBlockDown}></div>
+                        <div onClick={onChangeStop} className={BLIND_CMD_command_value===1 || BLIND_CMD_command_value===3? classes.buttonsBlockStop : BLIND_CMD_command_value===2 ? classes.buttonsBlockStopActive : classes.buttonsBlockStopDisabled}></div>
+                        <div onClick={onChangeUp} className={blindMoveValue===100 ? classes.buttonsBlockUpDisabled :BLIND_CMD_command_value===3? classes.buttonsBlockUpActive : classes.buttonsBlockUp}></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -89,6 +140,8 @@ const mapStateToProps = (state) => {     //для переменных из ст
     return {
         SP_T: state.SP_T,
         SP_L: state.SP_L,
+        blindMoveValue: state.blindMoveValue,
+        BLIND_CMD_command_value: state.BLIND_CMD_command_value,
     }
 };
 export default connect(mapStateToProps, actions)(MiddleSection);
