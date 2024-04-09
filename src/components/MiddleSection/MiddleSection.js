@@ -70,7 +70,7 @@ const MiddleSection = ({ SP_T, SP_L, blindMoveValue, BLIND_CMD_command_value }) 
                         <p className={classes.blackHeadText}>ТЕМПЕРАТУРА</p>
                         <div className={classes.blackStatsValue}>
                             {SP_T}
-                            <div className={classes.blackStatsValueUnit}>°C</div>
+                            <div className={classes.blackStatsValueUnitTemp}>°C</div>
                         </div>
                         <div className={classes.sliderBlock}>
                             <div className={classes.sliderImageTempLeft}></div>

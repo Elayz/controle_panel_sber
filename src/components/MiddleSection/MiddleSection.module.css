@@ -67,6 +67,14 @@
   left: 120px;
 }
 
+.blackStatsValueUnitTemp {
+  font-size: 40px;
+  color: #69777d;
+  position: absolute;
+  top: 10px;
+  left: 80px;
+}
+
 .blackTemp {
   flex-grow: 1;
   background-color: #293d46;
@@ -129,12 +137,14 @@
   background-image: url("../../assets_images/slider/slider-temp-01-dark.svg");
   width: 25px;
   height: 25px;
+  margin-right: 10px;
 }
 
 .sliderImageTempRight {
   background-image: url("../../assets_images/slider/slider-temp-02-dark.svg");
   width: 25px;
   height: 25px;
+  margin-left: 10px;
 }
 
 .buttonsBlock {

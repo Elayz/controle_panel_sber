@@ -102,15 +102,15 @@ const Footer = (
                     </div>
                 </div>
                 <div className={classes.blackModesBlock}>
-                    <div onClick={onClickOffLightActive} className={!offLightActive ? classes.blackOffLightMode : classes.scenarioActiveButton}>
+                    <div onClick={offAllActive ? null : onClickOffLightActive} className={!offLightActive ? classes.blackOffLightMode : classes.scenarioActiveButton}>
                         <div className={!offAllActive ? classes.blackOffLightModeImage : classes.blackOffLightModeImageDisabled}></div>
                         <p className={!offAllActive ? classes.scenarioBottomText : classes.scenarioBottomTextDisabled}>{OffLightButtonText}</p>
                     </div>
-                    <div onClick={onClickHeatingActive} className={ !heatingActive ? classes.blackOnHeatingMode : classes.scenarioActiveButton}>
+                    <div onClick={offAllActive ? null : onClickHeatingActive} className={ !heatingActive ? classes.blackOnHeatingMode : classes.scenarioActiveButton}>
                         <div className={!offAllActive ? classes.blackOnHeatingModeImage : classes.blackOnHeatingModeImageDisabled}></div>
                         <p className={!offAllActive ? classes.scenarioBottomText : classes.scenarioBottomTextDisabled}>{OnHeatButtonText}</p>
                     </div>
-                    <div onClick={onClickCoolingActive} className={ !coolingActive ? classes.blackOnCoolingMode : classes.scenarioActiveButton}>
+                    <div onClick={offAllActive ? null : onClickCoolingActive} className={ !coolingActive ? classes.blackOnCoolingMode : classes.scenarioActiveButton}>
                         <div className={!offAllActive ? classes.blackOnCoolingModeImage : classes.blackOnCoolingModeImageDisabled}></div>
                         <p className={!offAllActive ? classes.scenarioBottomText : classes.scenarioBottomTextDisabled}>{OnCoolingButtonText}</p>
                     </div>
