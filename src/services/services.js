@@ -68,7 +68,6 @@ export default async function login() {
             as_index: false,
             vars: vars.map((x) => "P5_N2" + "_" + x)
         }, (changes) => {
-            console.log(changes);
             changes.map((el) => {
                 el.filter(() => {
                     if (patternBLIND_CMD.test(el[0])){

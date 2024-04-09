@@ -24,19 +24,19 @@ const Header = ({ SENS_T, SENS_H, SENS_Q }) => {
                 <Flex gap="small" wrap="wrap" className={classes.circleInfoQ}>
                     <Progress type="circle" percent={SENS_Q/10} trailColor={circleTrailColor} format={(percent) => <span style={{color: fontColor}}>CO₂</span>} strokeColor={twoColors} size={circleSize} strokeWidth={circleWidth}/>
                     <span>{SENS_Q}</span>
-                    <span>ppm</span>
+                    <span className={classes.circleInfoTextQ}>ppm</span>
                 </Flex>
                 <Flex gap="small" wrap="wrap" className={classes.circleInfoT}>
                     <Progress type="circle" percent={SENS_T * 2} trailColor={circleTrailColor} format={(percent) => <span></span>} strokeColor={twoColors} size={circleSize} strokeWidth={circleWidth}/>
                     <span className={classes.currentTempDark}></span>
                     <span>{SENS_T}</span>
-                    <span>°C</span>
+                    <span className={classes.circleInfoTextT}>°C</span>
                 </Flex>
                 <Flex gap="small" wrap="wrap" className={classes.circleInfoH}>
                     <Progress type="circle" percent={SENS_H} trailColor={circleTrailColor} format={(percent) => <span></span>} strokeColor={twoColors} size={circleSize} strokeWidth={circleWidth}/>
                     <span className={classes.currentHumpDark}></span>
-                    <span>{SENS_H}</span>
-                    <span>%</span>
+                    <span>100</span>
+                    <span className={classes.circleInfoTextH}>%</span>
                 </Flex>
             </div>
         </div>

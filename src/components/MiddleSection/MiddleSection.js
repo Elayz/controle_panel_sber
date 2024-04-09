@@ -115,7 +115,9 @@ const MiddleSection = ({ SP_T, SP_L, blindMoveValue, BLIND_CMD_command_value }) 
                             }}
                             {...(BLIND_CMD_command_value === 1 || BLIND_CMD_command_value === 3
                                 ?{ value: blindMoveValue }
-                                : {value: typeof blindMoveValue === 'number' ? blindMoveValue : 0}
+                                : BLIND_CMD_command_value===2
+                                        ?{value: typeof blindMoveValue === 'number' ? blindMoveValue : 0}
+                                        : 0
                             )}
 
                             railStyle={railStyleObj}

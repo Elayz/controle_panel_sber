@@ -22,17 +22,13 @@ const initState = {
 const reducer = (state = initState, action) => {
     switch (action.type) {
         case 'changeState_BLIND_CMD_command_value':
+            console.log(state.BLIND_CMD_command_value);
             return {
                 ...state,
                 BLIND_CMD_command_value: action.payload,
             };
-
-
-
-
-
-
         case 'changeState_blindMoveValue':
+            // console.log(state.blindMoveValue)
             return {
                 ...state,
                 blindMoveValue: action.payload,

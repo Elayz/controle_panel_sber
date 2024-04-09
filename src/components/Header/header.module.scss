@@ -49,12 +49,36 @@ span{
 .circleInfoQ{
   position: absolute;
   left: 10px;
+  padding-left: 20px;
+}
+.circleInfoTextQ{
+  position: absolute;
+  right: -35px;
+  top: 18px;
+  color: #69777d;
+  font-size: 15px;
 }
 .circleInfoT{
   position: absolute;
   left: 210px;
   top: 20px;
-}.circleInfoH{
-   position: absolute;
+}
+.circleInfoTextT{
+  position: absolute;
+  right: -19px;
+  top: 18px;
+  color: #69777d;
+  font-size: 15px;
+}
+.circleInfoH{
+  position: absolute;
   right: 10px;
+  padding-right: 20px;
  }
+.circleInfoTextH{
+  position: absolute;
+  right: 5px;
+  top: 18px;
+  color: #69777d;
+  font-size: 15px;
+}
