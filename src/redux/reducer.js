@@ -25,7 +25,6 @@ const initState = {
 const reducer = (state = initState, action) => {
     switch (action.type) {
         case 'changeState_BLIND_POS_SP':
-            console.log(action.payload)
             return {
                 ...state,
                 BLIND_POS_SP: action.payload,

@@ -35,7 +35,6 @@ const MiddleSection = ({ SP_T, SP_L, BLIND_POS_SP, blindMoveValue, BLIND_CMD_com
     const handleChange = (e) => {
         changeState_sliderValue(e);
     };
-    console.log(badRealisation, sliderValue,blindMoveValue, BLIND_CMD_command_value)
     const railStyleObj = { backgroundColor: '#69777d'};
     const blindMoveStyle = {
         transform: `translateY(-${blindMoveValue * 1.5}px)`,
