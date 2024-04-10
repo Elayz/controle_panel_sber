@@ -4,6 +4,7 @@ const initState = {
     count: 0,
     SENS_T: 0,
     BLIND_POS:0,
+    BLIND_POS_SP:0,
     SENS_H: 0,
     SENS_Q: 0,
     SP_T: -1,
@@ -17,21 +18,39 @@ const initState = {
     coolingActiveReserve: 0,    //используется для хранения данных coolingActive, если включается режим offAllActive т.к. эта функция не реализована на сервере
     blindMoveValue: null,
     BLIND_CMD_command_value:0,
+    sliderValue: 0,
+    badRealisation: 0,
 }
 
 const reducer = (state = initState, action) => {
     switch (action.type) {
+        case 'changeState_BLIND_POS_SP':
+            console.log(action.payload)
+            return {
+                ...state,
+                BLIND_POS_SP: action.payload,
+            };
+        case 'changeState_badRealisation':
+            return {
+                ...state,
+                badRealisation: action.payload,
+            };
+        case 'changeState_sliderValue':
+            return {
+                ...state,
+                sliderValue: action.payload,
+            };
         case 'changeState_BLIND_CMD_command_value':
-            console.log(state.BLIND_CMD_command_value);
             return {
                 ...state,
                 BLIND_CMD_command_value: action.payload,
             };
         case 'changeState_blindMoveValue':
-            // console.log(state.blindMoveValue)
             return {
                 ...state,
                 blindMoveValue: action.payload,
+                sliderValue: action.payload,
+                badRealisation: action.payload,
             };
         case 'changeState_offAllActive':
             return {
@@ -67,11 +86,6 @@ const reducer = (state = initState, action) => {
                 ...state,
                 coolingActive: action.payload,
             };
-
-
-
-
-
         case 'addToState_SENS_T':
             return {
                 ...state,

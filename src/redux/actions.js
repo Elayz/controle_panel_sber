@@ -13,6 +13,10 @@ export const changeState_offAllActive_pullInToReserve  = (payload) => {return {t
 export const changeState_offAllActive_PullOutToReserve  = (payload) => {return {type: 'changeState_offAllActive_PullOutToReserve', payload}};
 export const changeState_blindMoveValue  = (payload) => {return {type: 'changeState_blindMoveValue', payload}};
 export const changeState_BLIND_CMD_command_value  = (payload) => {return {type: 'changeState_BLIND_CMD_command_value', payload}};
+export const changeState_sliderValue  = (payload) => {return {type: 'changeState_sliderValue', payload}};
+export const changeState_badRealisation  = (payload) => {return {type: 'changeState_badRealisation', payload}};
+export const changeState_BLIND_POS_SP  = (payload) => {return {type: 'changeState_BLIND_POS_SP', payload}};
+
 
 
 

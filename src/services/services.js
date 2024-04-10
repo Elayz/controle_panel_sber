@@ -5,7 +5,7 @@ import {
     addToState_SENS_Q,
     addToState_SENS_T,
     addToState_SP_L,
-    addToState_SP_T, changeState_BLIND_CMD_command_value, changeState_blindMoveValue,
+    addToState_SP_T, changeState_BLIND_CMD_command_value, changeState_BLIND_POS_SP, changeState_blindMoveValue,
     changeState_coolingActive,
     changeState_heatingActive,
     changeState_offAllActive,
@@ -47,6 +47,7 @@ export default async function login() {
     const patternSCENA_COOLING = /SCENA_COOLING$/;
     const patternSCENA_HEATING = /SCENA_HEATING$/;
     const patternBLIND_POS = /BLIND_POS$/;
+    const patternBLIND_POS_SP = /BLIND_POS_SP$/;
     const patternBLIND_CMD = /BLIND_CMD$/;
 
     try{
@@ -70,6 +71,9 @@ export default async function login() {
         }, (changes) => {
             changes.map((el) => {
                 el.filter(() => {
+                    if (patternBLIND_POS_SP.test(el[0])){
+                        store.dispatch(changeState_BLIND_POS_SP(el[2]))
+                    }
                     if (patternBLIND_CMD.test(el[0])){
                         store.dispatch(changeState_BLIND_CMD_command_value(el[2]))
                     }

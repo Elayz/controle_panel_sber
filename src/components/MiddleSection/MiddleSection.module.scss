@@ -167,7 +167,7 @@ $buttonImageSize: 60px;
   border: 1px white solid;
   flex-grow: 1;
 }
-.buttonsBlockStopActive{
+.buttonsBlockStop:active{
   background: white url("../../assets_images/blinds/blinds-pause-accent.svg")no-repeat;
   width: $buttonImageSize;
   height: $buttonImageSize;

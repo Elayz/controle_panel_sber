@@ -35,7 +35,7 @@ const Header = ({ SENS_T, SENS_H, SENS_Q }) => {
                 <Flex gap="small" wrap="wrap" className={classes.circleInfoH}>
                     <Progress type="circle" percent={SENS_H} trailColor={circleTrailColor} format={(percent) => <span></span>} strokeColor={twoColors} size={circleSize} strokeWidth={circleWidth}/>
                     <span className={classes.currentHumpDark}></span>
-                    <span>100</span>
+                    <span>{SENS_H}</span>
                     <span className={classes.circleInfoTextH}>%</span>
                 </Flex>
             </div>

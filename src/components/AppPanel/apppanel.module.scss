@@ -1,4 +1,8 @@
 $backColor: #161c20;
+@font-face {
+  font-family: 'SB Sans Display';
+  src: url('SB Sans Display.otf') format("opentype");
+}
 body{
   margin: 0;
   background-color: #161C20;
