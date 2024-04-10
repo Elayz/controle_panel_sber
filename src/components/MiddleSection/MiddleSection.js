@@ -5,7 +5,7 @@ import classes from './MiddleSection.module.scss';
 import { Slider } from "antd";
 import { service } from "../../services/services";
 
-const MiddleSection = ({ SP_T, SP_L, BLIND_POS_SP, blindMoveValue, BLIND_CMD_command_value, changeState_badRealisation, badRealisation, changeState_BLIND_CMD_command_value, changeState_sliderValue, sliderValue }) => {
+const MiddleSection = ({ SP_T, SP_L, BLIND_POS_SP, blindMoveValue, BLIND_CMD_command_value, changeState_badRealisation, changeState_sliderValue, sliderValue }) => {
     const onChangeLight = (lightValue) => {
         service.setVar({var: "P5_N2_SP_L", value: lightValue})
             .catch((error)=>alert(`Something wrong: ${error}`));
