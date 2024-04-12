@@ -16,7 +16,7 @@ const MiddleSection = ({ SP_T, SP_L, BLIND_POS_SP, blindMoveValue, BLIND_CMD_com
             .catch((error)=>alert(`Something wrong: ${error}`));
     };
     const onChangeBlind = (blindPosition) => {
-        changeState_badRealisation(blindPosition)
+        changeState_badRealisation(blindPosition);
         service.setVar({var: "P5_N2_BLIND_POS_SP", value: blindPosition})
             .catch((error)=>alert(`Something wrong: ${error}`));
     };
