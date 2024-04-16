@@ -11,12 +11,8 @@
   flex-grow: 1;
   width: 60px;
   justify-content: center;
-}
-
-.imageBlockImage {
-  background-image: url("../../assets_images/auditoriaImage/auditoria.svg");
-  width: 280px;
-  height: 345px;
+  background: url("../../assets_images/auditoriaImage/auditoria.svg") no-repeat;
+  background-size: cover;
 }
 
 .ant-slider-handle {

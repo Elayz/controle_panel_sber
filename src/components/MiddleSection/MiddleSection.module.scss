@@ -11,11 +11,11 @@ $buttonImageSize: 60px;
   flex-grow: 1;
   width: 60px;
   justify-content: center;
+  background: url("../../assets_images/auditoriaImage/auditoria.svg") no-repeat;
+  background-size: cover;
 }
 .imageBlockImage{
-  background-image: url("../../assets_images/auditoriaImage/auditoria.svg");
-  width: 280px;
-  height: 345px;
+
 }
 .ant-slider-handle {
   border-color: red !important;

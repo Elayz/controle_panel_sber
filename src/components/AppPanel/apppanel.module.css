@@ -11,9 +11,8 @@ body {
   background-color: #161c20;
   display: flex;
   flex-direction: column;
-  height: 515px;
-  width: 768px;
-  border: 2px #107F8C solid;
+  height: 100vh;
+  width: 100vw;
   margin: auto;
 }
 
