@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../redux/actions';
 import classes from './Footer.module.scss';
-import {service} from "../../services/services";
+import {service, matches} from "../../services/services";
 
 const Footer = (
     {
@@ -11,32 +11,32 @@ const Footer = (
         offLightActiveReserve,
         coolingActiveReserve,
         heatingActiveReserve,
-        offLightActive,
         offAllActive,
+        offLightActive,
         heatingActive,
         coolingActive
     }) => {
     const onClickOffAllActive = () => {
         if(offAllActive===0){
-            service.setVar({var: "P5_N2_SCENA_OFF_ALL", value: 1})
+            service.setVar({var: `${matches[1]}_SCENA_OFF_ALL`, value: 1})
                 .then(() => {
                     changeState_offAllActive_pullInToReserve();
                 })
                 .then(() => {
-                    service.setVar({var: "P5_N2_SCENA_OFF_LIGHTS", value: 0});
-                    service.setVar({var: "P5_N2_SCENA_COOLING", value: 0});
-                    service.setVar({var: "P5_N2_SCENA_HEATING", value: 0});
+                    service.setVar({var: `${matches[1]}_SCENA_OFF_LIGHTS`, value: 0});
+                    service.setVar({var: `${matches[1]}_SCENA_COOLING`, value: 0});
+                    service.setVar({var: `${matches[1]}_SCENA_HEATING`, value: 0});
                 })
                  .catch((error)=>alert(`Something wrong: ${error}`));
         }else if(offAllActive===1){
-            service.setVar({var: "P5_N2_SCENA_OFF_ALL", value: 0})
+            service.setVar({var: `${matches[1]}_SCENA_OFF_ALL`, value: 0})
                 .then(() => {
                     changeState_offAllActive_PullOutToReserve();
                 })
                 .then(() => {
-                    service.setVar({var: "P5_N2_SCENA_OFF_LIGHTS", value: offLightActiveReserve});
-                    service.setVar({var: "P5_N2_SCENA_COOLING", value: coolingActiveReserve});
-                    service.setVar({var: "P5_N2_SCENA_HEATING", value: heatingActiveReserve});
+                    service.setVar({var: `${matches[1]}_SCENA_OFF_LIGHTS`, value: offLightActiveReserve});
+                    service.setVar({var: `${matches[1]}_SCENA_COOLING`, value: coolingActiveReserve});
+                    service.setVar({var: `${matches[1]}_SCENA_HEATING`, value: heatingActiveReserve});
                 })
                 .catch((error)=>alert(`Something wrong: ${error}`));
         }else{
@@ -45,10 +45,10 @@ const Footer = (
     };
     const onClickOffLightActive = () => {
         if(offLightActive===0){
-            service.setVar({var: "P5_N2_SCENA_OFF_LIGHTS", value: 1})
+            service.setVar({var: `${matches[1]}_SCENA_OFF_LIGHTS`, value: 1})
                 .catch((error)=>alert(`Something wrong: ${error}`));
         }else if(offLightActive===1){
-            service.setVar({var: "P5_N2_SCENA_OFF_LIGHTS", value: 0})
+            service.setVar({var: `${matches[1]}_SCENA_OFF_LIGHTS`, value: 0})
                 .catch((error)=>alert(`Something wrong: ${error}`));
         }else{
             alert(`Something wrong with onClickOffAllActive insert value`)
@@ -56,11 +56,11 @@ const Footer = (
     };
     const onClickHeatingActive = () => {
         if(heatingActive===0){
-            service.setVar({var: "P5_N2_SCENA_HEATING", value: 1})
-                .then(()=>service.setVar({var: "P5_N2_SCENA_COOLING", value: 0}))
+            service.setVar({var: `${matches[1]}_SCENA_HEATING`, value: 1})
+                .then(()=>service.setVar({var: `${matches[1]}_SCENA_COOLING`, value: 0}))
                 .catch((error)=>alert(`Something wrong: ${error}`));
         }else if(heatingActive===1){
-            service.setVar({var: "P5_N2_SCENA_HEATING", value: 0})
+            service.setVar({var: `${matches[1]}_SCENA_HEATING`, value: 0})
                 .catch((error)=>alert(`Something wrong: ${error}`));
         }else{
             alert(`Something wrong with onClickOffAllActive insert value`)
@@ -68,11 +68,11 @@ const Footer = (
     };
     const onClickCoolingActive = () => {
         if(coolingActive===0){
-            service.setVar({var: "P5_N2_SCENA_COOLING", value: 1})
-                .then(()=>service.setVar({var: "P5_N2_SCENA_HEATING", value: 0}))
+            service.setVar({var: `${matches[1]}_SCENA_COOLING`, value: 1})
+                .then(()=>service.setVar({var: `${matches[1]}_SCENA_HEATING`, value: 0}))
                 .catch((error)=>alert(`Something wrong: ${error}`));
         }else if(coolingActive===1){
-            service.setVar({var: "P5_N2_SCENA_COOLING", value: 0})
+            service.setVar({var: `${matches[1]}_SCENA_COOLING`, value: 0})
                 .catch((error)=>alert(`Something wrong: ${error}`));
         }else{
             alert(`Something wrong with onClickOffAllActive insert value`)
@@ -98,21 +98,21 @@ const Footer = (
                     </div>
                     <div onClick={onClickOffAllActive} className={!offAllActive ? classes.blackOffAllModes : classes.scenarioActiveButton}>
                         <div className={classes.blackOffAllModesImage}></div>
-                        <p className={classes.scenarioBottomText}>{OffAllButtonText}</p>
+                        <p className={offAllActive ? classes.scenarioBottomTextActivated : classes.scenarioBottomTextDeactivated}>{OffAllButtonText}</p>
                     </div>
                 </div>
                 <div className={classes.blackModesBlock}>
                     <div onClick={offAllActive ? null : onClickOffLightActive} className={!offLightActive ? classes.blackOffLightMode : classes.scenarioActiveButton}>
                         <div className={!offAllActive ? classes.blackOffLightModeImage : classes.blackOffLightModeImageDisabled}></div>
-                        <p className={!offAllActive ? classes.scenarioBottomText : classes.scenarioBottomTextDisabled}>{OffLightButtonText}</p>
+                        <p className={offAllActive ? classes.scenarioBottomTextDisabled : offLightActive ? classes.scenarioBottomTextActivated : classes.scenarioBottomTextDeactivated}>{OffLightButtonText}</p>
                     </div>
                     <div onClick={offAllActive ? null : onClickHeatingActive} className={ !heatingActive ? classes.blackOnHeatingMode : classes.scenarioActiveButton}>
                         <div className={!offAllActive ? classes.blackOnHeatingModeImage : classes.blackOnHeatingModeImageDisabled}></div>
-                        <p className={!offAllActive ? classes.scenarioBottomText : classes.scenarioBottomTextDisabled}>{OnHeatButtonText}</p>
+                        <p className={offAllActive ? classes.scenarioBottomTextDisabled : heatingActive ? classes.scenarioBottomTextActivated : classes.scenarioBottomTextDeactivated}>{OnHeatButtonText}</p>
                     </div>
                     <div onClick={offAllActive ? null : onClickCoolingActive} className={ !coolingActive ? classes.blackOnCoolingMode : classes.scenarioActiveButton}>
                         <div className={!offAllActive ? classes.blackOnCoolingModeImage : classes.blackOnCoolingModeImageDisabled}></div>
-                        <p className={!offAllActive ? classes.scenarioBottomText : classes.scenarioBottomTextDisabled}>{OnCoolingButtonText}</p>
+                        <p className={offAllActive ? classes.scenarioBottomTextDisabled : coolingActive ? classes.scenarioBottomTextActivated : classes.scenarioBottomTextDeactivated}>{OnCoolingButtonText}</p>
                     </div>
                 </div>
             </div>

@@ -20,12 +20,11 @@ $scenariosFontColorDisabled: #69777d;
   background-color: $logoBlockColor;
 }
 .logoImage{
-  background: url("../../assets_images/logo/logo-dark.svg") no-repeat;
-  width: 45px;
-  height: 45px;
+  background: url("../../assets_images/logo/logo-dark.svg") no-repeat center;
+  width: 15%;
+  height: 15%;
   align-self: center;
   transform: scale(3);
-  position: absolute;
   top: 60px;
 }
 .footerLogoText{
@@ -58,6 +57,7 @@ $scenariosFontColorDisabled: #69777d;
   justify-content: center;
   display: flex;
   width: 180px;
+  font-size: min(1.5vw, 30px);
 }
 .blackScenarioText p{
   align-self: center;
@@ -68,11 +68,17 @@ $scenariosFontColorDisabled: #69777d;
   width: 85px;
   flex-direction: row;
 }
-.scenarioBottomText{
+.scenarioBottomTextActivated{
   align-self: center;
   margin: 0;
   font-size: 10px;
   color: $scenariosFontColor;
+}
+.scenarioBottomTextDeactivated{
+  align-self: center;
+  margin: 0;
+  font-size: 10px;
+  color: white;
 }
 .scenarioBottomTextDisabled{
   align-self: center;
@@ -87,10 +93,9 @@ $scenariosFontColorDisabled: #69777d;
   justify-content: center;
   flex-direction: column;
   width: 80px;
+  border-right: 2px #161c20 solid;
+  outline-offset: 1px;
 }
-
-
-
 .blackOffAllModes{
   flex-grow: 1;
   background-color: #252d33;
@@ -98,17 +103,14 @@ $scenariosFontColorDisabled: #69777d;
   justify-content: center;
   flex-direction: column;
   width: 80px;
+  padding: 15px 0;
 }
 .blackOffAllModesImage{
-  background-image: url("../../assets_images/scenario/scenario-on_off-accent.svg");
-  width: 45px;
-  height: 45px;
+  background: url("../../assets_images/scenario/scenario-on_off-accent.svg") no-repeat center;
+  width: 10vw;
+  height: 10vh;
   align-self: center;
 }
-
-
-
-
 .blackOffLightMode{
   flex-grow: 1;
   background-color: #293d46;
@@ -116,23 +118,20 @@ $scenariosFontColorDisabled: #69777d;
   justify-content: center;
   flex-direction: column;
   width: 80px;
+  padding: 15px 0;
 }
 .blackOffLightModeImage{
-  background-image: url("../../assets_images/scenario/scenario-lights_off-accent.svg");
-  width: 45px;
-  height: 45px;
+  background: url("../../assets_images/scenario/scenario-lights_off-accent.svg") no-repeat center;
+  width: 10vw;
+  height: 10vh;
   align-self: center;
 }
 .blackOffLightModeImageDisabled{
-  background-image: url("../../assets_images/scenario/scenario-lights_off-inactive-dark.svg");
-  width: 45px;
-  height: 45px;
+  background: url("../../assets_images/scenario/scenario-lights_off-inactive-dark.svg") no-repeat center;
+  width: 10vw;
+  height: 10vh;
   align-self: center;
 }
-
-
-
-
 .blackOnHeatingMode{
   flex-grow: 1;
   background-color: #252d33;
@@ -140,22 +139,20 @@ $scenariosFontColorDisabled: #69777d;
   justify-content: center;
   flex-direction: column;
   width: 80px;
+  padding: 15px 0;
 }
 .blackOnHeatingModeImage{
-  background-image: url("../../assets_images/scenario/scenario-heating-accent.svg");
-  width: 45px;
-  height: 45px;
+  background: url("../../assets_images/scenario/scenario-heating-accent.svg") no-repeat center;
+  width: 10vw;
+  height: 10vh;
   align-self: center;
 }
 .blackOnHeatingModeImageDisabled{
-  background-image: url("../../assets_images/scenario/scenario-heating-inactive-dark.svg");
-  width: 45px;
-  height: 45px;
+  background: url("../../assets_images/scenario/scenario-heating-inactive-dark.svg") no-repeat center;
+  width: 10vw;
+  height: 10vh;
   align-self: center;
 }
-
-
-
 .blackOnCoolingMode{
   flex-grow: 1;
   background-color: #293d46;
@@ -163,16 +160,17 @@ $scenariosFontColorDisabled: #69777d;
   justify-content: center;
   flex-direction: column;
   width: 80px;
+  padding: 15px 0;
 }
 .blackOnCoolingModeImage{
-  background-image: url("../../assets_images/scenario/scenario-cooling-accent.svg");
-  width: 45px;
-  height: 45px;
+  background: url("../../assets_images/scenario/scenario-cooling-accent.svg") no-repeat center;
+  width: 10vw;
+  height: 10vh;
   align-self: center;
 }
 .blackOnCoolingModeImageDisabled{
-  background-image: url("../../assets_images/scenario/scenario-cooling-inactive-dark.svg");
-  width: 45px;
-  height: 45px;
+  background: url("../../assets_images/scenario/scenario-cooling-inactive-dark.svg") no-repeat center;
+  width: 10vw;
+  height: 10vh;
   align-self: center;
 }

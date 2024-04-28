@@ -3,37 +3,37 @@ import { connect } from 'react-redux';
 import * as actions from '../../redux/actions';
 import classes from './MiddleSection.module.scss';
 import { Slider } from "antd";
-import { service } from "../../services/services";
+import { service, matches } from "../../services/services";
 
-const MiddleSection = ({ SP_T, SP_L, BLIND_POS_SP, blindMoveValue, BLIND_CMD_command_value, changeState_badRealisation, changeState_sliderValue, sliderValue }) => {
+const MiddleSection = ({ badRealisation, SP_T, SP_L, BLIND_POS_SP, blindMoveValue, BLIND_CMD_command_value, changeState_badRealisation, changeState_sliderValue, sliderValue, changeState_BLIND_POS_SP }) => {
     const onChangeLight = (lightValue) => {
-        service.setVar({var: "P5_N2_SP_L", value: lightValue})
+        service.setVar({var: `${matches[1]}_SP_L`, value: lightValue})
             .catch((error)=>alert(`Something wrong: ${error}`));
     };
 
     const onChangeTemp = (tempValue) => {
-        service.setVar({var: "P5_N2_SP_T", value: tempValue})
+        service.setVar({var: `${matches[1]}_SP_T`, value: tempValue})
             .catch((error)=>alert(`Something wrong: ${error}`));
     };
     const onChangeBlind = (blindPosition) => {
         changeState_badRealisation(blindPosition);
-        service.setVar({var: "P5_N2_BLIND_POS_SP", value: blindPosition})
+        service.setVar({var: `${matches[1]}_BLIND_POS_SP`, value: blindPosition})
             .catch((error)=>alert(`Something wrong: ${error}`));
     };
     const onChangeUp = () => {
-        service.setVar({var: "P5_N2_BLIND_CMD", value: 3})
+        service.setVar({var: `${matches[1]}_BLIND_CMD`, value: 3})
             .catch((error)=>alert(`Something wrong: ${error}`));
     };
     const onChangeStop = () => {
-        service.setVar({var: "P5_N2_BLIND_CMD", value: 2})
+        service.setVar({var: `${matches[1]}_BLIND_CMD`, value: 2})
             .catch((error)=>alert(`Something wrong: ${error}`));
     };
     const onChangeDown = () => {
-        service.setVar({var: "P5_N2_BLIND_CMD", value: 1})
+        service.setVar({var: `${matches[1]}_BLIND_CMD`, value: 1})
             .catch((error)=>alert(`Something wrong: ${error}`));
     };
     const handleChange = (e) => {
-        changeState_sliderValue(e);
+        changeState_BLIND_POS_SP(e);
     };
     const railStyleObj = { backgroundColor: '#69777d'};
     const blindMoveStyle = {
@@ -121,10 +121,10 @@ const MiddleSection = ({ SP_T, SP_L, BLIND_POS_SP, blindMoveValue, BLIND_CMD_com
                                 borderRadius: '50px',
                             }}
                             {...(BLIND_CMD_command_value === 1 || BLIND_CMD_command_value === 3
-                                ?{ value: blindMoveValue }
-                                : BLIND_CMD_command_value===2
+                                    ?{ value: blindMoveValue }
+                                    : BLIND_CMD_command_value===2
                                         ? {value: blindMoveValue}
-                                        : {value: sliderValue}
+                                        : {value: BLIND_POS_SP}
                             )}
                             railStyle={railStyleObj}
                             defaultValue={blindMoveValue}
@@ -133,11 +133,13 @@ const MiddleSection = ({ SP_T, SP_L, BLIND_POS_SP, blindMoveValue, BLIND_CMD_com
                         />
                     }
                     <div className={classes.buttonsBlock}>
-                        <div onClick={onChangeDown} className={blindMoveValue===0 ? classes.buttonsBlockDownDisabled : BLIND_CMD_command_value===1 ? classes.buttonsBlockDownActive : classes.buttonsBlockDown}></div>
-                        <div onClick={onChangeStop} className={BLIND_CMD_command_value===1 || BLIND_CMD_command_value===3 || blindMoveValue!==BLIND_POS_SP
-                            ? classes.buttonsBlockStop
-                            : classes.buttonsBlockStopDisabled}></div>
-                        <div onClick={onChangeUp} className={blindMoveValue===100 ? classes.buttonsBlockUpDisabled :BLIND_CMD_command_value===3? classes.buttonsBlockUpActive : classes.buttonsBlockUp}></div>
+                        <div className={classes.buttonsBlockSection}>
+                            <div onClick={onChangeDown} className={blindMoveValue===0 ? classes.buttonsBlockDownDisabled : BLIND_CMD_command_value===1 ? classes.buttonsBlockDownActive : classes.buttonsBlockDown}></div>
+                            <div onClick={onChangeStop} className={BLIND_CMD_command_value===1 || BLIND_CMD_command_value===3 || blindMoveValue!==BLIND_POS_SP
+                                ? classes.buttonsBlockStop
+                                : classes.buttonsBlockStopDisabled}></div>
+                            <div onClick={onChangeUp} className={blindMoveValue===100 ? classes.buttonsBlockUpDisabled :BLIND_CMD_command_value===3? classes.buttonsBlockUpActive : classes.buttonsBlockUp}></div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -14,8 +14,17 @@ import {
 
 
 export const service = new jsonRpcService("wss://test1.albacore.ru:443", 10000);
+export const matches = [];
 await service.connectWS();
 export default async function login() {
+
+    const strGet = window.location.search.replace('?', '');
+    const regex = /(?:title=([^&]+)|node=([^&]+))/g;
+    let match;
+    while ((match = regex.exec(strGet)) !== null) {
+        matches.push(match[1] || match[2]);
+    }
+
     const vars = [
         "SENS_T",
         "BLIND_POS",
@@ -67,7 +76,7 @@ export default async function login() {
         }
         const subscription = await service.subscribeVars({
             as_index: false,
-            vars: vars.map((x) => "P5_N2" + "_" + x)
+            vars: vars.map((x) => matches[1] + "_" + x)
         }, (changes) => {
             changes.map((el) => {
                 el.filter(() => {

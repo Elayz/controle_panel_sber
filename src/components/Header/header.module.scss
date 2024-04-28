@@ -36,8 +36,8 @@ span{
 }
 .blackPlaceInfoBlock p{
   align-self: center;
+  font-size: min(3vw, 30px);
 }
-
 .blackStatsInfoBlock{
   display: flex;
   flex-grow: 2;
@@ -49,7 +49,7 @@ span{
 }
 .circleInfoQ{
   position: absolute;
-  left: 10px;
+  left: 5%;
   padding-left: 20px;
 }
 .circleInfoTextQ{
@@ -59,9 +59,12 @@ span{
   color: #69777d;
   font-size: 15px;
 }
+.circleInfoQText{
+  width: 35px;
+}
 .circleInfoT{
   position: absolute;
-  left: 210px;
+  left: 45%;
   top: 20px;
 }
 .circleInfoTextT{
@@ -71,9 +74,12 @@ span{
   color: #69777d;
   font-size: 15px;
 }
+.circleInfoTText{
+  width: 25px;
+}
 .circleInfoH{
   position: absolute;
-  right: 10px;
+  right: 5%;
   padding-right: 20px;
  }
 .circleInfoTextH{
@@ -82,4 +88,7 @@ span{
   top: 18px;
   color: #69777d;
   font-size: 15px;
+}
+.circleInfoHText{
+  width: 25px;
 }
