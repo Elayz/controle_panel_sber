@@ -4,16 +4,23 @@ import * as actions from '../../redux/actions';
 import classes from './MiddleSection.module.scss';
 import { Slider } from "antd";
 import { service, matches } from "../../services/services";
+import {addToState_SP_T} from "../../redux/actions";
 
-const MiddleSection = ({ badRealisation, SP_T, SP_L, BLIND_POS_SP, blindMoveValue, BLIND_CMD_command_value, changeState_badRealisation, changeState_sliderValue, sliderValue, changeState_BLIND_POS_SP }) => {
-    const onChangeLight = (lightValue) => {
+const MiddleSection = ({ addToState_SP_T, addToState_SP_L, SP_T, SP_L, BLIND_POS_SP, blindMoveValue, BLIND_CMD_command_value, changeState_badRealisation, changeState_BLIND_POS_SP }) => {
+    const onCompleteLight = (lightValue) => {
         service.setVar({var: `${matches[1]}_SP_L`, value: lightValue})
             .catch((error)=>alert(`Something wrong: ${error}`));
     };
+    const onChangeLight = (lightValue) => {
+        addToState_SP_L(lightValue);
+    };
 
-    const onChangeTemp = (tempValue) => {
+    const onCompleteTemp = (tempValue) => {
         service.setVar({var: `${matches[1]}_SP_T`, value: tempValue})
             .catch((error)=>alert(`Something wrong: ${error}`));
+    };
+    const onChangeTemp = (tempValue) => {
+        addToState_SP_T(tempValue);
     };
     const onChangeBlind = (blindPosition) => {
         changeState_badRealisation(blindPosition);
@@ -57,6 +64,9 @@ const MiddleSection = ({ badRealisation, SP_T, SP_L, BLIND_POS_SP, blindMoveValu
                             {SP_L===-1
                                 ?<div></div>
                                 :<Slider
+                                    tooltip={{
+                                        open: false,
+                                    }}
                                     className={classes.slider}
                                     trackStyle={{
                                         backgroundColor: '#5fc5ab',
@@ -67,7 +77,8 @@ const MiddleSection = ({ badRealisation, SP_T, SP_L, BLIND_POS_SP, blindMoveValu
                                     }}
                                     railStyle={railStyleObj}
                                     defaultValue={SP_L}
-                                    onChangeComplete={onChangeLight}
+                                    onChangeComplete={onCompleteLight}
+                                    onChange={onChangeLight}
                                 />
                             }
                             <div className={classes.sliderImageLightRight}></div>
@@ -84,6 +95,9 @@ const MiddleSection = ({ badRealisation, SP_T, SP_L, BLIND_POS_SP, blindMoveValu
                             {SP_T===-1
                                 ?<div></div>
                                 :<Slider
+                                    tooltip={{
+                                        open: false,
+                                    }}
                                     className={classes.slider}
                                     trackStyle={{
                                         backgroundColor: '#5fc5ab',
@@ -96,7 +110,8 @@ const MiddleSection = ({ badRealisation, SP_T, SP_L, BLIND_POS_SP, blindMoveValu
                                     min={16}
                                     max={35}
                                     defaultValue={SP_T}
-                                    onChangeComplete={onChangeTemp}
+                                    onChangeComplete={onCompleteTemp}
+                                    onChange={onChangeTemp}
                                 />
                             }
                             <div className={classes.sliderImageTempRight}></div>
@@ -112,6 +127,9 @@ const MiddleSection = ({ badRealisation, SP_T, SP_L, BLIND_POS_SP, blindMoveValu
                     {blindMoveValue===null
                         ?<div></div>
                         : <Slider
+                            tooltip={{
+                                open: false,
+                            }}
                             className={classes.blindsSlider}
                             trackStyle={{
                                 backgroundColor: '#5fc5ab',

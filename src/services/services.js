@@ -21,8 +21,10 @@ export default async function login() {
     const strGet = window.location.search.replace('?', '');
     const regex = /(?:title=([^&]+)|node=([^&]+))/g;
     let match;
+
     while ((match = regex.exec(strGet)) !== null) {
-        matches.push(match[1] || match[2]);
+        matches.push(decodeURIComponent(match[1] || match[2]));
+        console.log(matches)
     }
 
     const vars = [
